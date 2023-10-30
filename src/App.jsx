@@ -37,7 +37,7 @@ export default function App() {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Navigate replace to="dashboard" />} />
+              <Route path="/" element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="products" element={<Products />} />
               <Route path="addedByUser" element={<ProductsByUser />} />

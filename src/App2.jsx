@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
@@ -11,6 +15,7 @@ import { DarkModeProvider } from "./Context/DarkModeContext";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { GlobalStyles } from "./styles/GlobalStyles";
+import Homepage from "./pages/Homepage";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +25,7 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      { path: "/", element: <Dashboard /> },
+      { path: "/", element: <Navigate replace to="dashboard" /> },
       { path: "/dashboard", element: <Dashboard /> },
       { path: "/products", element: <Products /> },
       { path: "/addedByUser", element: <ProductsByUser /> },
@@ -28,7 +33,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "*", element: <PageNotFound /> },
-  { path: "login", element: <Login /> },
+  { path: "/login", element: <Login /> },
 ]);
 const queryClient = new QueryClient({
   defaultOptions: {

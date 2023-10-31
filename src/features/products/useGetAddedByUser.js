@@ -2,12 +2,15 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getProductsAddedByUser } from "../../services/apiProducts";
 import { useSearchParams } from "react-router-dom";
 import { PAGE_SIZE } from "../../utils/constants";
+import { useUser } from "../authentication/useUser";
 
 export function useGetAddedByUser() {
   const [searchParams] = useSearchParams();
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
   const queryClient = useQueryClient();
-  const userId = searchParams.get("userId");
+  const {
+    user: { id: userId },
+  } = useUser();
   const { data: { data: productsByUser, count } = {}, isLoading } = useQuery({
     queryFn: () => getProductsAddedByUser({ userId, page }),
     queryKey: ["productsByUser", userId, "products", page],

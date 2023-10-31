@@ -31,7 +31,7 @@ function CreateProductForm({ productToEdit = {}, onCloseModal }) {
   const { id: editId, ...editValues } = productToEdit;
   const isEditSession = Boolean(editId);
   const isWorking = isCreatingProduct || isEditingProduct;
-  const { user } = useUser() || {};
+  const { user } = useUser();
   const userId = user?.id;
   console.log(String(userId), "create");
   const {
@@ -61,7 +61,7 @@ function CreateProductForm({ productToEdit = {}, onCloseModal }) {
     }
     if (!isEditSession) {
       createProduct(
-        { ...data, image: data.image.item(0) },
+        { ...data, image: data.image.item(0), lastEditedBy: null },
         {
           onSuccess: () => {
             onCloseModal?.();

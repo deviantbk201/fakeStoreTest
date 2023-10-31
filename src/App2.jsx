@@ -14,7 +14,11 @@ import { GlobalStyles } from "./styles/GlobalStyles";
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     children: [
       { path: "/", element: <Dashboard /> },
       { path: "/dashboard", element: <Dashboard /> },

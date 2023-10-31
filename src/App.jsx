@@ -38,13 +38,13 @@ export default function App() {
               }
             >
               <Route path="/" element={<Navigate replace to="dashboard" />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="products" element={<Products />} />
-              <Route path="addedByUser" element={<ProductsByUser />} />
-              <Route path="products/:productId" element={<Product />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/addedByUser" element={<ProductsByUser />} />
+              <Route path="/products/:productId" element={<Product />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
-            <Route path="login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>
         <Toaster

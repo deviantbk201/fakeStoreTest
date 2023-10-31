@@ -75,13 +75,13 @@ export default function MainNav() {
         {/* <li>
           <StyledNavLink to="/login">
             <HiOutlineUsers />
-            <span>Users</span>
+            <span>Login</span>
           </StyledNavLink>
         </li> */}
         {/* <li>
           <StyledNavLink to="/signup">
             <HiOutlineCog6Tooth />
-            <span>Settings</span>
+            <span>Signup</span>
           </StyledNavLink>
         </li> */}
       </NavList>

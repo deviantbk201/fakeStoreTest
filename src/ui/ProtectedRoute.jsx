@@ -16,7 +16,6 @@ export default function ProtectedRoute({ children }) {
   const navigate = useNavigate();
   // 1 Load Authenticated USer
   const {
-    user,
     isLoading: isLoadingUserData,
     isAuthenticated,
     fetchStatus,

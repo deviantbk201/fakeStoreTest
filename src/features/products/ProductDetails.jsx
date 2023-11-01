@@ -14,7 +14,8 @@ import Empty from "../../ui/Empty";
 import { useProduct } from "./useProduct";
 import { useDeleteProduct } from "./useDeleteProduct";
 import CreateProductForm from "./CreateProductForm";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { useMoveBack } from "../../hooks/useMoveBack";
 const HeadingGroup = styled.div`
   display: flex;
   gap: 2.4rem;
@@ -28,23 +29,17 @@ export default function ProductDetails() {
   const { product, isLoading } = useProduct();
   const { deleteProduct, isDeletingProduct } = useDeleteProduct();
   // console.log(window.history);
-  const navigate = useNavigate();
-  const moveBack = () => {
-    navigate(-4);
-  };
+  // const navigate = useNavigate();
+  // const moveBack = () => {
+  //   navigate(-1);
+  // };
+  const moveBack = useMoveBack();
   if (isLoading) return <Spinner />;
   if (!product) return <Empty resource="Product" />;
   const { id: productId } = product;
   // We return a fragment so that these elements fit into the page's layout
   return (
     <>
-      <button
-        onClick={() => {
-          navigate(-3);
-        }}
-      >
-        Click
-      </button>
       <Row type="horizontal">
         <HeadingGroup>
           <Heading type="h1">Product #{productId}</Heading>
